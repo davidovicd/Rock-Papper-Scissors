@@ -6,6 +6,9 @@ function getComputersChoice(){
   return computersChoice
 }
 
+let playersScore = 0
+let computersScore = 0
+
 // compare choices
 function playRound(){
   // get players choice
@@ -20,9 +23,11 @@ function playRound(){
       return `It's a draw`
     }
     else if (computersChoice == "papper"){
+      computersScore += 1
       return `You lose papper beats rock`
     }
     else {
+      playersScore += 1
       return `You win, rock crushes scissors`
     }
   } 
@@ -33,9 +38,11 @@ function playRound(){
       return `It's a draw`
     }
     else if (computersChoice == "rock"){
+      playersScore += 1
       return `You win papper beats rock`
     }
     else {
+      computersScore += 1
       return `You lose, scissors cut papper`
     }
   }
@@ -46,10 +53,12 @@ function playRound(){
       return `It's a draw`
     }
     else if (computersChoice == "rock") {
+      computersScore += 1
       return `You lose, rock crushes scissors`
     }
     else {
-      return `You win, scissors cut papper`
+      playersScore += 1
+      return `You win, scissors cut papper`  
     }
   }
 }
@@ -57,8 +66,10 @@ function playRound(){
 // play 5 rounds of game
 function game(){
   for (let round = 1; round <= 5; round++){
+    console.log(`Round ${round} current score is Player: ${playersScore} - Computer ${computersScore}`);
     console.log(playRound());
   }
+  console.log(`Game over after 5 rounds final score is: Player ${playersScore} - Computer ${computersScore}`);
 }
 
 game()
