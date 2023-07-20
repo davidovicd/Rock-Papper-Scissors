@@ -1,8 +1,17 @@
 // get computers choice
-  // do not put the computers choice or players choice to the console, just return them
-
-// get players choice
+function getComputersChoice(){
+  // do not put the computers choice  to the console, just return the value
+  let options = ["rock", "papper", "scissors"]
+  let computersChoice = options[Math.floor(Math.random() * options.length)]
+  return computersChoice
+}
 
 // compare choices
-  // compare two choices, and print the winner on the console
+
+
+// get players choice
+const playersChoice = prompt("Please insert your choice, rock, papper or scissors: ")
+const computersChoice = getComputersChoice()
+
+// print the winner on the console
 
