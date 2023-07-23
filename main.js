@@ -13,9 +13,9 @@ let playersScore = 0
 let computersScore = 0
 
 // compare choices
-function playRound(playersChoice, computersChoice){
-  playersChoice = prompt("Please insert your choice, rock, papper or scissors: ")
-  computersChoice = getComputersChoice()
+function playRound(){
+  const playersChoice = prompt("Please insert your choice, rock, papper or scissors: ")
+  const computersChoice = getComputersChoice()
   // do not put the winer to the console  to the console, just return the value
 
   // player choose rock
