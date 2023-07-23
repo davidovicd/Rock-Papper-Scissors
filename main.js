@@ -1,3 +1,6 @@
+
+
+
 // get computers choice
 function getComputersChoice(){
   let options = ["rock", "papper", "scissors"]
@@ -10,11 +13,9 @@ let playersScore = 0
 let computersScore = 0
 
 // compare choices
-function playRound(){
-  // get players choice
-  const playersChoice = prompt("Please insert your choice, rock, papper or scissors: ")
-  const computersChoice = getComputersChoice()
-  
+function playRound(playersChoice, computersChoice){
+  playersChoice = prompt("Please insert your choice, rock, papper or scissors: ")
+  computersChoice = getComputersChoice()
   // do not put the winer to the console  to the console, just return the value
 
   // player choose rock
@@ -63,6 +64,7 @@ function playRound(){
   }
 }
 
+
 // play 5 rounds of game
 function game(){
   for (let round = 1; round <= 5; round++){
@@ -73,6 +75,7 @@ function game(){
 }
 
 game()
+
 
 
 
