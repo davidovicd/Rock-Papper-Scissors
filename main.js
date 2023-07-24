@@ -1,21 +1,19 @@
-
-
+let buttons = document.querySelectorAll("button")
+let playersScore = 0
+let computersScore = 0
+let round = 1
 
 // get computers choice
 function getComputersChoice(){
   let options = ["rock", "papper", "scissors"]
   let computersChoice = options[Math.floor(Math.random() * options.length)]
-  console.log(computersChoice);
   return computersChoice
 }
 
-let playersScore = 0
-let computersScore = 0
-
+// compare two choices
 // compare choices
-function playRound(){
-  const playersChoice = prompt("Please insert your choice, rock, papper or scissors: ")
-  const computersChoice = getComputersChoice()
+function playRound(playersChoice, computersChoice){
+
   // do not put the winer to the console  to the console, just return the value
 
   // player choose rock
@@ -65,16 +63,27 @@ function playRound(){
 }
 
 
-// play 5 rounds of game
-function game(){
-  for (let round = 1; round <= 5; round++){
-    console.log(`Round ${round} current score is Player: ${playersScore} - Computer ${computersScore}`);
-    console.log(playRound());
-  }
-  console.log(`Game over after 5 rounds final score is: Player ${playersScore} - Computer ${computersScore}`);
-}
 
-game()
+buttons.forEach((button) => {
+  button.addEventListener("click", ()=>{
+    let roundNumber = document.querySelector(".roundNumber")
+    roundNumber.textContent = `Round ${round}...`
+    let roundResult = document.querySelector(".roundResult")
+    roundResult.textContent = `${playRound(button.id, getComputersChoice())}`
+    let score = document.querySelector(".score")
+    score.textContent = `Current score: Player ${playersScore} : ${computersScore} Computer `
+    round += 1
+    
+    if (round > 5) {
+      let buttonsDiv = document.querySelector(".buttons")
+      buttonsDiv.remove()
+      score.classList.add("header")
+      score.textContent = `Final score: Player ${playersScore} : ${computersScore} Computer`
+      
+    }
+  })
+})
+
 
 
 

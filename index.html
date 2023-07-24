@@ -3,14 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rock papper scissors game</title>
+  <title>Rock Papper Scissors UI</title>
+  <link rel="stylesheet" type="text/css"  href="style.css">
 </head>
 <body>
   <div class="container">
-    <div>
-      <button id="rock" class="btn">Rock</button>
-      <button id="papper" class="btn">Paperr</button>
-      <button id="scissors" class="btn">Scissors</button>
+    <h1>Rock Papper Scissors game</h1>
+    
+    <div class="buttons">
+      <p>Please select your choice</p>
+      <button id="rock">Rock</button>
+      <button id="papper">Papper</button>
+      <button id="scissors">Scissors</button>
+    </div>
+
+    <div class="rounds">
+      <p class="roundNumber"></p>
+      <p class="roundResult"></p>
+      <p class="score"></p>
     </div>
   </div>
   <script src="main.js"></script>
