@@ -1,12 +1,45 @@
 const choices = ["rock", "papper", "scissors"];
+const buttons = document.querySelectorAll("button");
+let playersDisplay = document.querySelector(".playersDisplay");
+let computersDisplay = document.querySelector(".computersDisplay");
+let roundResult = document.querySelector(".roundResult");
+const playerScoreDisplay = document.querySelector('.playerScoreDisplay');
+const computerScoreDisplay = document.querySelector('.computerScoreDisplay');
+let gameOver = document.querySelector(".gameOver");
+let playerScore = 0;
+let computerScore = 0;
+let reset = document.querySelector(".reset");
 
 
 
-function getComputerChoice () {
+function getComputersChoice () {
   const choice = choices[Math.floor(Math.random() * choices.length)];
-  console.log(`Computer choose ${choice}`);
-  return choice;
+  computersDisplay.innerHTML = choice;
 }
+
+buttons.forEach((button) => {
+  button.addEventListener(("click"), () => {
+    
+    playersDisplay.innerHTML = button.id;
+    getComputersChoice();
+    roundResult.innerHTML = playRound(playersDisplay.innerHTML, computersDisplay.innerHTML);
+    let result = checkWinner(playersDisplay.innerHTML, computersDisplay.innerHTML);
+    if (result === `Player`){
+      playerScore +=1;
+    }
+    else if (result === `Computer`){
+      computerScore+=1;
+    }
+    playerScoreDisplay.innerHTML = `Player ${playerScore}`;
+    computerScoreDisplay.innerHTML = `Computer ${computerScore} `;
+
+    if (playerScore == 5 || computerScore == 5){
+      gameOver.innerHTML = "Game Over";
+      reset.classList.remove("disabled");
+    }
+    
+  })
+})
 
 function checkWinner(playersChoice, computersChoice){
   if (playersChoice == computersChoice) {
@@ -54,49 +87,15 @@ function playRound(playersChoice, computersChoice){
   }
 }
 
-function getPlayersChoice() {
-  let input = false;
-  while (input == false) {
-    const choiceInput = prompt("Rock, Papper, scissors");
-    if (choiceInput == null) {
-      continue;
-    }
-    const choice = choiceInput.toLowerCase();
-    if (choices.includes(choice)){
-      input = true;
-      console.log(`Player choose ${choice}`);
-      return choice;
-    }
-  }
+function restartGame(){
+  playerScore = 0;
+  computerScore = 0;
+  reset.classList.add("disabled");
+  playersDisplay.innerHTML = "";
+  computersDisplay.innerHTML = "";
+  roundResult.innerHTML = "Waiting...";
+  gameOver.innerHTML = "";
 }
 
-function game() {
-  let playerScore = 0;
-  let computersScore = 0;
-  console.log("Welcome to the game");
-  for (let i = 1; i<= 5; i++){
-    console.log(`Current score is Player ${playerScore} : ${computersScore} Computer Round ${i}...`);
-    const playersChoice = getPlayersChoice();
-    const computersChoice = getComputerChoice();
-    console.log(playRound(playersChoice, computersChoice)); 
-    const result = checkWinner(playersChoice, computersChoice);
-    if (result == "Computer") {
-      computersScore++;
-    }
-    else if (result == "Player"){
-      playerScore++;
-    }
-  }
-  console.log("----------------------------------------------------------------------------");
-  console.log("Game over");
-  if (playerScore > computersScore){
-    console.log("Player wins");
-  }
-  else if (computersScore > playerScore){
-    console.log("Computer wins");
-  }
-  console.log(`Final score is Player ${playerScore} : ${computersScore} Computer`);
-}
 
-game();
 

@@ -4,9 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rock Papper Scissors game</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h1>Welcome to rock papper scissors game</h1>
   
+  <div class="score">
+    <h2 class="playerScoreDisplay"></h2>
+    <h2 class="computerScoreDisplay"></h2>
+  </div>
+  
+  <div class="winner">
+    <h2 class="gameOver"></h2>
+    <button class="reset disabled" onclick="restartGame()">Play again ?</button>
+  </div>
+  
+  <div class="buttons">
+    <button id="rock">Rock</button>
+    <button id="papper">Papper</button>
+    <button id="scissors">Scissors</button>    
+  </div>
+
+  <div class="round">
+    <h3>Player choose: <span class="playersDisplay"></span></h3>
+    <h3>Computer choose: <span class="computersDisplay"></span></h3>
+    <h3 class="roundResult">Waiting...</h3>
+  </div>
+
+
   <script src="main.js"></script>
 </body>
 </html>
