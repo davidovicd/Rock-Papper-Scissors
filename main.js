@@ -9,6 +9,7 @@ let gameOver = document.querySelector(".gameOver");
 let playerScore = 0;
 let computerScore = 0;
 let reset = document.querySelector(".reset");
+let enabled = document.querySelectorAll(".enabled");
 
 
 
@@ -36,6 +37,7 @@ buttons.forEach((button) => {
     if (playerScore == 5 || computerScore == 5){
       gameOver.innerHTML = "Game Over";
       reset.classList.remove("disabled");
+      enabled.classList.add("disabled");
     }
     
   })
@@ -95,6 +97,7 @@ function restartGame(){
   computersDisplay.innerHTML = "";
   roundResult.innerHTML = "Waiting...";
   gameOver.innerHTML = "";
+  enabled.classList.remove("disabled");
 }
 
 
