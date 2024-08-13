@@ -21,7 +21,7 @@ h1 {
 }
 
 .disabled {
-  display: none;
+  display: none !important;
 }
 
 .buttons {
