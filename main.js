@@ -95,7 +95,7 @@ function restartGame(){
   reset.classList.add("disabled");
   playersDisplay.innerHTML = "";
   computersDisplay.innerHTML = "";
-  roundResult.innerHTML = "Waiting...";
+  roundResult.textContent = "Waiting...";
   gameOver.innerHTML = "";
   let buttonsClass = document.querySelector(".buttons");
   buttonsClass.classList.remove("disabled");
